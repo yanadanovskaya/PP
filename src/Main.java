@@ -40,7 +40,7 @@ public class Main {
 
     private static String processArithmeticOperations(String line) {
         Main.line = line;
-        Pattern pattern = Pattern.compile("(\\d+\\s*[+\\-*/] *\\d+\\s*[+\\-*/] *\\d+)");
+        Pattern pattern = Pattern.compile("(\\d+\\s*[+\\-*/]\\s*\\d+).*?(\\d+\\s*[+\\-*/]\\s*\\d+)");
         Matcher matcher = pattern.matcher(line);
         while (matcher.find()) {
             String operation = matcher.group();

@@ -1,10 +1,73 @@
 import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+import javax.crypto.Cipher;
+import javax.crypto.CipherOutputStream;
+import javax.crypto.spec.SecretKeySpec;
 
 public class Main {
+    public class FileProcessor {
 
-    private static String line;
+        private static final String KEY = "mysecretkey"; // ключ для шифрования
+
+        public static void main(String[] args) {
+            String inputFile = args[0]; // путь к входному файлу
+            String outputFile = args[1]; // путь к выходному файлу
+
+            try {
+                // архивация файла
+                archiveFile(inputFile, outputFile + ".zip");
+
+                // шифрование архива
+                encryptFile(outputFile + ".zip", outputFile);
+
+                System.out.println("Processing is complete. The result is written to a file: " + outputFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        private static void archiveFile(String inputFile, String outputFile) throws IOException {
+            byte[] buffer = new byte[1024];
+            FileOutputStream fos = new FileOutputStream(outputFile);
+            ZipOutputStream zos = new ZipOutputStream(fos);
+            ZipEntry ze = new ZipEntry(new File(inputFile).getName());
+            zos.putNextEntry(ze);
+            FileInputStream in = new FileInputStream(inputFile);
+            int len;
+            while ((len = in.read(buffer)) > 0) {
+                zos.write(buffer, 0, len);
+            }
+            in.close();
+            zos.closeEntry();
+            zos.close();
+        }
+
+        private static void encryptFile(String inputFile, String outputFile) throws IOException {
+            byte[] keyBytes = KEY.getBytes();
+            SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytes, "AES");
+            Cipher cipher;
+            try {
+                cipher = Cipher.getInstance("AES");
+                cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            FileInputStream fis = new FileInputStream(inputFile);
+            FileOutputStream fos = new FileOutputStream(outputFile);
+            CipherOutputStream cos = new CipherOutputStream(fos, cipher);
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                cos.write(buffer, 0, bytesRead);
+            }
+            fis.close();
+            cos.flush();
+            cos.close();
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -23,11 +86,11 @@ public class Main {
             reader.close();
 
             //Обработка полученной информации
-            String arithmeticOperations = processArithmeticOperations(String.valueOf(stringBuilder));
+            String lastLettersOfWords = processArithmeticOperations(String.valueOf(stringBuilder));
 
             //Запись данных в выходной файл
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
-            writer.write(arithmeticOperations);
+            writer.write(lastLettersOfWords);
             writer.close();
 
 
@@ -39,8 +102,7 @@ public class Main {
     }
 
     private static String processArithmeticOperations(String line) {
-        Main.line = line;
-        Pattern pattern = Pattern.compile("(\\d+\\s*[+\\-*/]\\s*\\d+).*?(\\d+\\s*[+\\-*/]\\s*\\d+)");
+        Pattern pattern = Pattern.compile("(\\d+ *[+\\-*/] *\\d+)");//ищет матем выражения
         Matcher matcher = pattern.matcher(line);
         while (matcher.find()) {
             String operation = matcher.group();
@@ -53,33 +115,20 @@ public class Main {
     private static String evaluateArithmeticExpression(String operation) {
         String[] tokens = operation.split("(?:(\\p{Ll}\\p{L}*)\\s+)?");
         double num1 = Double.parseDouble(tokens[0]);
-        double num2 = Double.parseDouble(tokens[1]);
-        double num3 = Double.parseDouble(tokens[2]);
-        String operator1 = tokens[1];
-        String operator2 = tokens[2];
+        double num2 = Double.parseDouble(tokens[2]);
+        String operator = tokens[1];
 
-        double result1;
-        double result2;
 
-        result1 = switch (operator1) {
+        double result = switch (operator) {
             case "+" -> num1 + num2;
             case "-" -> num1 - num2;
             case "*" -> num1 * num2;
             case "/" -> num1 / num2;
-            default -> throw new IllegalArgumentException("Invalid operator: " + operator1);
+            default -> throw new IllegalArgumentException("Invalid operator: " + operator);
         };
 
-        result2 = switch (operator2) {
-            case "+" -> result1 + num3;
-            case "-" -> result1 - num3;
-            case "*" -> result1 * num3;
-            case "/" -> result1 / num3;
-            default -> throw new IllegalArgumentException("Invalid operator: " + operator2);
-        };
-
-        return String.valueOf(result2);
+        return String.valueOf(result);
     }
-
     public static class ArithmeticOperationProcessor {
 
         public static void processFileWithoutRegex(String inputFile, String outputFile) {

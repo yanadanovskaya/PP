@@ -102,7 +102,7 @@ public class Main {
     }
 
     private static String processArithmeticOperations(String line) {
-        Pattern pattern = Pattern.compile("(\\d+ *[+\\-*/] *\\d+)");//ищет матем выражения
+        Pattern pattern = Pattern.compile("(\\d+ *[+\\-*/] *\\d+( *[+\\-*/] *\\d+)*)");//ищет матем выражения
         Matcher matcher = pattern.matcher(line);
         while (matcher.find()) {
             String operation = matcher.group();
@@ -112,20 +112,30 @@ public class Main {
 
         return line;
     }
+
     private static String evaluateArithmeticExpression(String operation) {
         String[] tokens = operation.split("(?:(\\p{Ll}\\p{L}*)\\s+)?");
-        double num1 = Double.parseDouble(tokens[0]);
-        double num2 = Double.parseDouble(tokens[2]);
-        String operator = tokens[1];
-
-
-        double result = switch (operator) {
-            case "+" -> num1 + num2;
-            case "-" -> num1 - num2;
-            case "*" -> num1 * num2;
-            case "/" -> num1 / num2;
-            default -> throw new IllegalArgumentException("Invalid operator: " + operator);
-        };
+        double result = Double.parseDouble(tokens[0]);
+        for (int i = 1; i < tokens.length; i+=2) {
+            double num = Double.parseDouble(tokens[i+1]);
+            String operator = tokens[i];
+            switch (operator) {
+                case "+":
+                    result += num;
+                    break;
+                case "-":
+                    result -= num;
+                    break;
+                case "*":
+                    result *= num;
+                    break;
+                case "/":
+                    result /= num;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Invalid operator: " + operator);
+            };
+        }
 
         return String.valueOf(result);
     }

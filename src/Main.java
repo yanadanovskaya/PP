@@ -14,8 +14,8 @@ public class Main {
         private static final String KEY = "mysecretkey"; // ключ для шифрования
 
         public static void main(String[] args) {
-            String inputFile = args[0]; // путь к входному файлу
-            String outputFile = args[1]; // путь к выходному файлу
+            String inputFile = args[0];
+            String outputFile = args[1];
 
             try {
                 // архивация файла
@@ -72,9 +72,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String outputFile = "output.txt";//Путь к выходному файлу
+        String outputFile = "output.txt";
 
-        try {// Чтение данных из  входного файла
+        try {
             BufferedReader reader = new BufferedReader(new FileReader("C:\\work\\Project\\src\\input.txt"));
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -101,7 +101,7 @@ public class Main {
 
     }
 
-    private static String processArithmeticOperations(String line) {
+    static String processArithmeticOperations(String line) {
         Pattern pattern = Pattern.compile("(\\d+ *[+\\-*/] *\\d+( *[+\\-*/] *\\d+)*)");//ищет матем выражения
         Matcher matcher = pattern.matcher(line);
         while (matcher.find()) {
@@ -130,7 +130,7 @@ public class Main {
 
         return String.valueOf(result);
     }
-    private static String processWithoutRegex(String line) {
+    static String processWithoutRegex(String line) {
         StringBuilder buffer = new StringBuilder();
         double result = 0;
         char lastOperator = '+';

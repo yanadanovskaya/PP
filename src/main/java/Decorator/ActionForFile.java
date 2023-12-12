@@ -1,9 +1,10 @@
 package Decorator;
 
+import Enum.Actions;
+import Enum.Types;
+
 import java.io.File;
 import java.io.IOException;
-import Enum.Types;
-import Enum.Actions;
 
 public class ActionForFile {
     private final String path;

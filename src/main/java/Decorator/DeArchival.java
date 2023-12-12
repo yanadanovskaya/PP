@@ -26,7 +26,7 @@ public class DeArchival extends DataDecorator {
             RarDeArchiving();
         }
 
-        System.out.println("DeArchive part");
+        System.out.println("DeArchiving part");
 
         super.writeData();
 

@@ -67,7 +67,7 @@ public class DeArchiving {
     public void JarDeArchiving() {
 
         try (JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream(this.name + ".jar"));
-             FileInputStream fis = new FileInputStream("resourses/" + path);) {
+             FileInputStream fis = new FileInputStream("resourses" + path);) {
             JarEntry jarEntry = new JarEntry(path);
             jarOutputStream.putNextEntry(jarEntry);
             byte[] buffer = new byte[fis.available()];

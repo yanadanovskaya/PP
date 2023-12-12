@@ -20,7 +20,7 @@ public class Archiving {
         this.path = path;
     }
 
-    public void ZipArchivation() {
+    public void ZipArchiving() {
 
         try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("src/res/archiveAndEncrypt" + name + ".zip"));
              FileInputStream fis = new FileInputStream("src/res/" + path);) {
@@ -74,7 +74,7 @@ public class Archiving {
 
     public static void main(String[] args) {
         Archiving archiving = new Archiving("src/res/orderout.txt");
-        archiving.ZipArchivation();
+        archiving.ZipArchiving();
     }
 
 }

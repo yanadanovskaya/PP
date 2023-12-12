@@ -14,19 +14,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class XMLParser extends Parser {
-    private static ArrayList<Double> rezuList = new ArrayList<>();
+    private static ArrayList<Double> resuList = new ArrayList<>();
 
     public XMLParser(String inPath) {
         super(inPath);
     }
 
+
     @Override
-    public void parse() throws ParserConfigurationException, SAXException, IOException {
+    public String parse(String s) throws ParserConfigurationException, SAXException, IOException {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         SAXParser parser = factory.newSAXParser();
         HEXParse par = new HEXParse();
         System.out.println(getInPath());
         parser.parse(new File(getInPath()), par);
+        return s;
+    }
+
+    @Override
+    public void write(String s, String text) throws ParserConfigurationException, SAXException, IOException {
+
     }
 
     private static class HEXParse extends DefaultHandler {
@@ -36,7 +43,7 @@ public class XMLParser extends Parser {
             if (qName.equals("RawString")) {
                 String str = attributes.getValue("str");
                 ArithmeticProcess arithmeticProcess = new ArithmeticProcess(str);
-                rezuList.add(arithmeticProcess.getResult());
+                resuList.add(arithmeticProcess.getResult());
             }
         }
 

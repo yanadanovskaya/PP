@@ -62,7 +62,7 @@ public class XmlWrite extends Writer {
 
 
     private static Node getResult(Document doc, String value) {
-        Element node = doc.createElement("Rezult");
+        Element node = doc.createElement("Result");
         node.appendChild(doc.createTextNode(value));
         return node;
     }

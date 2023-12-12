@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public abstract class Parser {
 
-    private static ArrayList<Double> rezuList = new ArrayList<>();
+    private static ArrayList<Double> resuList = new ArrayList<>();
 
     private String inPath;
 
@@ -15,14 +15,15 @@ public abstract class Parser {
         this.inPath = inPath;
     }
 
-    public abstract void parse() throws ParserConfigurationException, SAXException, IOException;
+    public abstract String parse(String s) throws ParserConfigurationException, SAXException, IOException;
+    public abstract void write(String s, String text) throws ParserConfigurationException, SAXException, IOException;
 
     public String getInPath() {
         return inPath;
     }
 
-    public static ArrayList<Double> getRezuList() {
-        return rezuList;
+    public static ArrayList<Double> getResList() {
+        return resuList;
     }
 
 }

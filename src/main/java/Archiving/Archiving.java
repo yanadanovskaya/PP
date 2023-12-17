@@ -9,9 +9,9 @@ import java.util.zip.ZipOutputStream;
 
 public class Archiving {
 
-    private String path;
-    private String name;
-    private String extension;
+    private final String path;
+    private final String name;
+    private final String extension;
 
     public Archiving(String path) {
         String[] arr = path.replace(".", " ").split(" ");

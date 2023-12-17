@@ -9,9 +9,9 @@ import java.util.zip.ZipInputStream;
 
 public class DeArchiving {
 
-    private String path;
-    private String name;
-    private String extension;
+    private final String path;
+    private final String name;
+    private final String extension;
 
     public DeArchiving(String path) {
         String[] arr = path.replace(".", " ").split(" ");
@@ -23,7 +23,7 @@ public class DeArchiving {
     public void RarDeArchivation() {
 
         try (ZipInputStream zout = new ZipInputStream(new FileInputStream(this.name + ".rar"));
-             FileOutputStream fout = new FileOutputStream("src/res/" + path);) {
+             FileOutputStream fout = new FileOutputStream("src/res/" + path)) {
 
             for (int c = zout.read(); c != -1; c = zout.read()) {
                 fout.write(c);
@@ -67,7 +67,7 @@ public class DeArchiving {
     public void JarDeArchiving() {
 
         try (JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream(this.name + ".jar"));
-             FileInputStream fis = new FileInputStream("resourses" + path);) {
+             FileInputStream fis = new FileInputStream("resourses/" + path)) {
             JarEntry jarEntry = new JarEntry(path);
             jarOutputStream.putNextEntry(jarEntry);
             byte[] buffer = new byte[fis.available()];

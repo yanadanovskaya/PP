@@ -1,5 +1,4 @@
-# Java_IP
-WebSupport(Rest API), UNIT testing, JavaFX GUI
+# Java Project
  
 Необходимо реализовать консольное приложение, которое:
 
@@ -37,27 +36,6 @@ WebSupport(Rest API), UNIT testing, JavaFX GUI
 Шифровка \ де Шифровка файла используя любую библиотеку шифрования;
 Покрыть все эти атомарные задачи Unit Test-ами;
 
-1) Парсинг, уверен, большинство не решило задачу разбора и расчёта арифметических выражений в полном объеме, есть ограничения о которых нужно сказать.
-2) Какие архиваторы и шифровальные алгоритмы поддерживает
-3) Какая вложенность ..? Могу ли я зазиповать, зарарить, потом зашифровать и еще раз разиповать и так далее. Укажите пожалуйста вложенность и конкретные примеры вложенности.
-4) Есть ли UI: Desktop, Web, оба ... если да, то на какой технологии
-5) Есть ли сервисы и если да, то какие: Rest, SOAP, Оба.
-
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015046.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015103.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015155.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015210.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015221.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015237.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015248.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015302.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015315.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015329.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015329.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015339.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015355.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015421.png)
-![image](https://github.com/Ilusha2004/Java_IP/blob/main/src/res/images/Screenshot%202023-01-17%20015516.png)
 
 
 

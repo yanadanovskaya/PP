@@ -49,7 +49,7 @@ public class Archival extends DataDecorator {
 
         try (ZipOutputStream zout = new ZipOutputStream(
                 new FileOutputStream("src/res/archiveAndEncrypt/archived_" + FileSource.getFilePath().getName() + ".zip"));
-             FileInputStream fis  = new FileInputStream(FileSource.getFilePath().getPath());) {
+             FileInputStream fis  = new FileInputStream(FileSource.getFilePath().getPath())) {
 
             ZipEntry entry1 = new ZipEntry(FileSource.getFilePath().getName() + "." + FileSource.getFilePath().getExtension());
 
@@ -70,7 +70,7 @@ public class Archival extends DataDecorator {
     public void RarArchiving() {
         try (ZipOutputStream zout = new ZipOutputStream(
                 new FileOutputStream("src/res/archiveAndEncrypt/archived_" + FileSource.getFilePath().getName() + ".rar"));
-             FileInputStream fis  = new FileInputStream(FileSource.getFilePath().getPath());) {
+             FileInputStream fis  = new FileInputStream(FileSource.getFilePath().getPath())) {
 
             ZipEntry entry1 = new ZipEntry(FileSource.getFilePath().getName() + "." + FileSource.getFilePath().getExtension());
 
@@ -91,7 +91,7 @@ public class Archival extends DataDecorator {
 
         try (JarOutputStream jarOutputStream = new JarOutputStream(
                 new FileOutputStream("src/res/archiveAndEncrypt/archived_" + FileSource.getFilePath().getName() + ".jar"));
-             FileInputStream fis = new FileInputStream(FileSource.getFilePath().getPath());) {
+             FileInputStream fis = new FileInputStream(FileSource.getFilePath().getPath())) {
 
             JarEntry jarEntry = new JarEntry(FileSource.getFilePath().getName() + "." + FileSource.getFilePath().getExtension());
 
@@ -109,9 +109,9 @@ public class Archival extends DataDecorator {
 
     }
 
-    public static String getArchivePath() {
-        return archivePath;
-    }
+//    public static String getArchivePath() {
+//        return archivePath;
+//    }
 
     public static void setArchivePath(String archivePath) {
         Archival.archivePath = archivePath;

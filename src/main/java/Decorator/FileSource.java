@@ -14,9 +14,9 @@ public class FileSource implements DecoratorInterface {
     private static Types archiveExtensions;
 
     public FileSource(String path, Types archiveExtensions) {
-        this.path             = new PathToFile(path);
-        this.archiveExtensions = archiveExtensions;
-        this.firstPath = new PathToFile(path);
+        FileSource.path = new PathToFile(path);
+        FileSource.archiveExtensions = archiveExtensions;
+        firstPath = new PathToFile(path);
     }
 
     public static PathToFile getFirstPath() {
@@ -55,6 +55,7 @@ public class FileSource implements DecoratorInterface {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        assert buffer != null;
         return new String(buffer);
     }
 

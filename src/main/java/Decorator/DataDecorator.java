@@ -2,7 +2,7 @@ package Decorator;
 
 public class DataDecorator implements DecoratorInterface {
 
-    private DecoratorInterface dec;
+    private final DecoratorInterface dec;
 
     public DataDecorator(DecoratorInterface dec) {
         this.dec = dec;

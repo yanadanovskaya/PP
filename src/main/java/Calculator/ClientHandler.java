@@ -55,9 +55,7 @@ public class ClientHandler implements Runnable {
 
             System.out.println("Closing connections & channels - DONE.");
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }

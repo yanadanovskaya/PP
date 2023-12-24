@@ -73,7 +73,7 @@ public class Client {
     public void getFile() {
         byte[] b=new byte[1024];
 
-        try {// Определим входной поток,
+        try {
             InputStream in = is;
             DataInputStream din = new DataInputStream (new BufferedInputStream(in)); // Создать файл для сохранения
             String filename = din.readLine();
@@ -81,12 +81,12 @@ public class Client {
             RandomAccessFile fw = new RandomAccessFile(f, "rw");
 
             int num = din.read(b);
-            while (num != -1) {// Записать 0 байтов в файл
+            while (num != -1) {
                 System.out.println("hui");
-                fw.write(b, 0, num); // Пропустить num байтов и снова записать в файл
-                fw.skipBytes(num); // Чтение num байтов
+                fw.write(b, 0, num);
+                fw.skipBytes(num);
                 num = din.read(b);
-            } // Закрыть входной и выходной потоки
+            }
             din.close();
             fw.close();
         } catch (Exception e) {

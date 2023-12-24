@@ -4,7 +4,7 @@ import java.util.concurrent.Executors;
 
 public class MainProject {
 
-    public class Main {
+    public static class Main {
 
         public static void main(String[] args) throws InterruptedException {
 

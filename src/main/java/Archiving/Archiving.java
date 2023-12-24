@@ -11,19 +11,17 @@ public class Archiving {
 
     private final String path;
     private final String name;
-    private final String extension;
 
     public Archiving(String path) {
         String[] arr = path.replace(".", " ").split(" ");
         this.name = arr[0];
-        this.extension = arr[1];
         this.path = path;
     }
 
     public void ZipArchiving() {
 
         try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("src/res/archiveAndEncrypt" + name + ".zip"));
-             FileInputStream fis = new FileInputStream("src/res/" + path);) {
+             FileInputStream fis = new FileInputStream("src/res/" + path)) {
 
             ZipEntry entry1 = new ZipEntry(path);
             zout.putNextEntry(entry1);
@@ -40,7 +38,7 @@ public class Archiving {
     public void RarArchiving() {
 
         try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("src/res/archiveAndEncrypt" + name + ".rar"));
-             FileInputStream fis = new FileInputStream("src/res/" + path);) {
+             FileInputStream fis = new FileInputStream("src/res/" + path)) {
 
             ZipEntry entry1 = new ZipEntry(path);
             zout.putNextEntry(entry1);
@@ -57,7 +55,7 @@ public class Archiving {
     public void JarArchiving() {
 
         try (JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream("src/res/archiveAndEncrypt/" + name + ".jar"));
-             FileInputStream fis = new FileInputStream("src/res/" + path);) {
+             FileInputStream fis = new FileInputStream("src/res/" + path)) {
 
             JarEntry jarEntry = new JarEntry(path);
             jarOutputStream.putNextEntry(jarEntry);

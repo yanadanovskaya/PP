@@ -28,7 +28,7 @@ public class FileEncrypt extends DataDecorator {
         return super.readData();
     }
 
-    public void Encrypt() throws Exception {
+    public void Encrypt() {
 
         try {
             Cipher cipher_encrypted   = Cipher.getInstance("AES");
@@ -54,7 +54,7 @@ public class FileEncrypt extends DataDecorator {
     }
 
     public void setKey(Key key) {
-        this.key = key;
+        FileEncrypt.key = key;
     }
 
 }

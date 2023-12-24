@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class XMLParser extends Parser {
-    private static ArrayList<Double> resuList = new ArrayList<>();
+    private static final ArrayList<Double> resuList = new ArrayList<>();
 
     public XMLParser(String inPath) {
         super(inPath);
@@ -39,11 +39,11 @@ public class XMLParser extends Parser {
     private static class HEXParse extends DefaultHandler {
 
         @Override
-        public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+        public void startElement(String uri, String localName, String qName, Attributes attributes) {
             if (qName.equals("RawString")) {
                 String str = attributes.getValue("str");
                 ArithmeticProcess arithmeticProcess = new ArithmeticProcess(str);
-                resuList.add(arithmeticProcess.getResult());
+                resuList.add((Double) arithmeticProcess.getResult());
             }
         }
 

@@ -6,13 +6,13 @@ import java.util.StringTokenizer;
 
 public class ArithmeticProcess {
 
-        private String data;
+        private final String data;
 
         public ArithmeticProcess(String data) {
             this.data = data;
         }
 
-        private String DeleteLatine() {
+        private String DeleteLatin() {
             StringTokenizer tokenizer = new StringTokenizer(data, Strings.getAlphabetLH());
             StringBuilder temp = new StringBuilder(new String(""));
 
@@ -23,13 +23,13 @@ public class ArithmeticProcess {
             return temp.toString();
         }
 
-        public Double getResult() {
+        public Object getResult() {
 
-            String[] arr = DeleteLatine().split("(?=([+\\-*/]))");
+            String[] arr = DeleteLatin().split("(?=([+\\-*/]))");
 
             Double result = Double.parseDouble(arr[0]);
 
-            for (Integer i = 1; i < arr.length; i++) {
+            for (int i = 1; i < arr.length; i++) {
 
                 try {
                     String[] temp = arr[i].split("[.]{2,}");

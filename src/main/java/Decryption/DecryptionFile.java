@@ -8,7 +8,7 @@ import java.security.Key;
 
 public class DecryptionFile {
 
-    private String path;
+    private final String path;
     private String encryptedPath;
     Key key;
 

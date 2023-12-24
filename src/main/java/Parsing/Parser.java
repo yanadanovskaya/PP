@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public abstract class Parser {
 
-    private static ArrayList<Double> resuList = new ArrayList<>();
+    private static final ArrayList<Double> resuList = new ArrayList<>();
 
-    private String inPath;
+    private final String inPath;
 
     public Parser(String inPath) {
         this.inPath = inPath;

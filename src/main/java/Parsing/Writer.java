@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public abstract class Writer {
 
-    private static ArrayList<Double> rezuList = new ArrayList<>();
-    private String outPath;
+    private static final ArrayList<Double> rezuList = new ArrayList<>();
+    private final String outPath;
 
     public Writer(String outPath) {
         this.outPath = outPath;

@@ -4,7 +4,6 @@ import Enum.Actions;
 import Enum.Types;
 
 import java.io.File;
-import java.io.IOException;
 
 public class ActionForFile {
     private final String path;
@@ -19,7 +18,7 @@ public class ActionForFile {
         this.archiveExtension = archiveExtension;
     }
 
-    public void CreateAction() throws IOException {
+    public void CreateAction() {
 
         tempFile = new File(path);
 

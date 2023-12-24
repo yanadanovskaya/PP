@@ -11,12 +11,10 @@ public class DeArchiving {
 
     private final String path;
     private final String name;
-    private final String extension;
 
     public DeArchiving(String path) {
         String[] arr = path.replace(".", " ").split(" ");
         this.name = arr[0];
-        this.extension = arr[1];
         this.path = path;
     }
 

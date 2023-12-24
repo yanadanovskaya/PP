@@ -9,13 +9,13 @@ public class Main {
         Client clientSend = new Client();
         clientSend.connectSocketServer(7890);
 
-        System.out.println("hui");
+        System.out.println("hhh");
 
         String flag = "";
         clientSend.sendFile(file, flag);
         clientSend.clientStop();
 
-        System.out.println("hui");
+        System.out.println("hhh");
 
         Client clientGet = new Client();
         clientGet.connectSocketServer(7891);

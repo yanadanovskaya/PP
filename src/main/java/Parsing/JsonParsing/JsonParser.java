@@ -7,6 +7,7 @@
 //import org.json.simple.parser.JSONParser;
 //import org.json.simple.parser.ParseException;
 //
+//import javax.swing.text.html.parser.DTD;
 //import javax.swing.text.html.parser.Parser;
 //import java.io.FileNotFoundException;
 //import java.io.FileReader;
@@ -16,8 +17,8 @@
 //public class JsonParser extends Parser {
 //    private ArrayList<Double> rezuList = new ArrayList<>();
 //
-//    public JsonParser(String inPath) {
-//        super(inPath);
+//    public JsonParser(String inPath) throws IOException {
+//        super(DTD.getDTD(inPath));
 //    }
 //
 //    @Override

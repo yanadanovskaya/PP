@@ -20,6 +20,11 @@ public class XMLParser extends Parser {
         super(inPath);
     }
 
+    @Override
+    public void parse() {
+
+    }
+
 
     @Override
     public String parse(String s) throws ParserConfigurationException, SAXException, IOException {
@@ -43,7 +48,7 @@ public class XMLParser extends Parser {
             if (qName.equals("RawString")) {
                 String str = attributes.getValue("str");
                 ArithmeticProcess arithmeticProcess = new ArithmeticProcess(str);
-                resuList.add((Double) arithmeticProcess.getResult());
+                resuList.add(arithmeticProcess.getResult());
             }
         }
 

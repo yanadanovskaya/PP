@@ -20,8 +20,8 @@ public class Archiving {
 
     public void ZipArchiving() {
 
-        try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("src/res/archiveAndEncrypt" + name + ".zip"));
-             FileInputStream fis = new FileInputStream("src/res/" + path)) {
+        try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("C:\\work\\untitled\\" + name + ".zip"));
+             FileInputStream fis = new FileInputStream("C:\\work\\untitled\\" + path)) {
 
             ZipEntry entry1 = new ZipEntry(path);
             zout.putNextEntry(entry1);
@@ -37,8 +37,8 @@ public class Archiving {
 
     public void RarArchiving() {
 
-        try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("src/res/archiveAndEncrypt" + name + ".rar"));
-             FileInputStream fis = new FileInputStream("src/res/" + path)) {
+        try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("C:\\work\\untitled\\" + name + ".rar"));
+             FileInputStream fis = new FileInputStream("C:\\work\\untitled\\" + path)) {
 
             ZipEntry entry1 = new ZipEntry(path);
             zout.putNextEntry(entry1);
@@ -54,8 +54,8 @@ public class Archiving {
 
     public void JarArchiving() {
 
-        try (JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream("src/res/archiveAndEncrypt/" + name + ".jar"));
-             FileInputStream fis = new FileInputStream("src/res/" + path)) {
+        try (JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream("C:\\work\\untitled\\" + name + ".jar"));
+             FileInputStream fis = new FileInputStream("C:\\work\\untitled\\" + path)) {
 
             JarEntry jarEntry = new JarEntry(path);
             jarOutputStream.putNextEntry(jarEntry);
@@ -71,7 +71,7 @@ public class Archiving {
     }
 
     public static void main(String[] args) {
-        Archiving archiving = new Archiving("src/res/orderout.txt");
+        Archiving archiving = new Archiving("src/res/orderout.zip");
         archiving.ZipArchiving();
     }
 

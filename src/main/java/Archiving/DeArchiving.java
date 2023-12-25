@@ -21,7 +21,7 @@ public class DeArchiving {
     public void RarDeArchivation() {
 
         try (ZipInputStream zout = new ZipInputStream(new FileInputStream(this.name + ".rar"));
-             FileOutputStream fout = new FileOutputStream("src/res/" + path)) {
+             FileOutputStream fout = new FileOutputStream("C:\\work\\untitled\\" + path)) {
 
             for (int c = zout.read(); c != -1; c = zout.read()) {
                 fout.write(c);
@@ -46,7 +46,7 @@ public class DeArchiving {
 
                 Name = entry.getName();
 
-                FileOutputStream fout = new FileOutputStream("src/res/archiveAndEncrypt/" + Name);
+                FileOutputStream fout = new FileOutputStream("C:\\work\\untitled\\" + Name);
 
                 for (int c = zin.read(); c != -1; c = zin.read()) {
                     fout.write(c);
@@ -80,7 +80,7 @@ public class DeArchiving {
     }
 
     public static void main(String[] args) {
-        DeArchiving deArchiving = new DeArchiving("src/res/archiveAndEncrypt/archived_res.zip");
+        DeArchiving deArchiving = new DeArchiving("src/res//orderout.zip");
         deArchiving.ZipDeArchiving();
     }
 

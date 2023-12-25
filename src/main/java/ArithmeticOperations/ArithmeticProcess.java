@@ -14,7 +14,7 @@ public class ArithmeticProcess {
 
         private String DeleteLatin() {
             StringTokenizer tokenizer = new StringTokenizer(data, Strings.getAlphabetLH());
-            StringBuilder temp = new StringBuilder(new String(""));
+            StringBuilder temp = new StringBuilder();
 
             while (tokenizer.hasMoreTokens()) {
                 temp.append(tokenizer.nextElement());
@@ -23,7 +23,7 @@ public class ArithmeticProcess {
             return temp.toString();
         }
 
-        public Object getResult() {
+        public Double getResult() {
 
             String[] arr = DeleteLatin().split("(?=([+\\-*/]))");
 

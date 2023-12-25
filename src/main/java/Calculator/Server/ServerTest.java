@@ -170,8 +170,8 @@ public class ServerTest {
 
             ServerTest serverSend = new ServerTest();
             serverSend.initServer(7891);
-            serverSend.sendFile("src/res/ArchiveAndEncrypt/test.txt");
-            File f2 = new File("src/res/ArchiveAndEncrypt/test.txt");
+            serverSend.sendFile("src/res/test.txt");
+            File f2 = new File("src/res/test.txt");
             serverSend.serverStop();
         }
 

@@ -8,16 +8,16 @@ public class MainProject {
 
         public static void main(String[] args) throws InterruptedException {
 
-            ExecutorService exec = Executors.newFixedThreadPool(10);
+            ExecutorService executorService = Executors.newFixedThreadPool(10);
             int j = 0;
 
             while (j < 10) {
                 j++;
-                exec.execute(new ClientTester());
+                executorService.execute(new ClientTester());
                 Thread.sleep(10);
             }
 
-            exec.shutdown();
+            executorService.shutdown();
         }
     }
 }

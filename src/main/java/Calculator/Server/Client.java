@@ -52,9 +52,9 @@ public class Client {
             InputStream ins = new FileInputStream(f);
             int n = ins.read(b);
 
-            while (n != -1) {// Запись данных в сеть
-                dout.write(b); // Отправить содержимое файла
-                dout.flush(); // снова прочитать n байтов
+            while (n != -1) {
+                dout.write(b);
+                dout.flush();
                 n = ins.read(b);
             }
 
@@ -82,7 +82,7 @@ public class Client {
 
             int num = din.read(b);
             while (num != -1) {
-                System.out.println("hui");
+                System.out.println("ddd");
                 fw.write(b, 0, num);
                 fw.skipBytes(num);
                 num = din.read(b);
